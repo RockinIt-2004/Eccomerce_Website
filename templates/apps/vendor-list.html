@@ -1,0 +1,50 @@
+{% extends 'partials/base.html' %}
+{%load static%}
+{% block content %}
+<div class="product-featured">
+
+    <h2 class="title">-----------------------------------------------------------VENDOR LIST----------------------------------------------------------------</h2>
+    <div class="showcase-wrapper has-scrollbar">
+    {% for v in vendor %}
+      <div class="showcase-container">
+
+        <div class="showcase">
+          
+          <div class="showcase-banner">
+            <img src="{{v.image.url}}" alt="ASUS" class="showcase-img">
+          </div>
+
+          <div class="showcase-content">
+            
+            <a href="{% url 'apps:vendor-detail'  v.vid %}">
+              <h3 class="showcase-title">{{v.title}}</h3>
+            </a>
+            <p class="showcase-desc">
+                Adress:{{v.address}}
+              </p>
+            <p class="blog-meta">
+                Since {{v.date|date:"Y"}}
+            </p>
+
+            <div class="price-box">
+              <p class="price">{{v.product.all.count}}Product{{v.products.all.count|pluralize}}</p>
+            </div>
+
+
+            <div class="countdown-box">
+
+
+           
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    {% endfor %}
+    </div>
+
+  </div>
+{% endblock content %}

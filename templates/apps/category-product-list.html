@@ -1,0 +1,98 @@
+{% extends 'partials/base.html' %}
+{%load static%}
+{% block content %}
+<div class="banner">
+
+    <div class="container">
+
+      <div class="slider-container has-scrollbar">
+
+        <div class="slider-item">
+
+          <img src="{{category.image.url}}" alt="women's latest fashion sale" class="banner-img">
+
+          <div class="banner-content">
+
+            <p class="banner-subtitle">Category name</p>
+
+            <h2 class="banner-title">{{category.title}}</h2>
+
+            <p class="banner-text">
+                <b>{{products.count}}</b> item{{products.count|pluralize}} for you
+            </p>
+
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+  <div class="product-main">
+
+    <h2 class="title">New Products</h2>
+    <div class="product-grid">
+    
+    {% for p in products %}
+        <div class="showcase">
+
+          <div class="showcase-banner">
+
+            <img src="{{p.image.url}}" alt="Mens Winter Leathers Jackets" width="300" class="product-img default">
+            <img src="{% static './assets/images/products/jacket-4.jpg' %}" alt="Mens Winter Leathers Jackets" width="300" class="product-img hover">
+
+            <p class="showcase-badge">-{{p.get_percentage|floatformat:0}}%</p>
+
+            <div class="showcase-actions">
+
+              <button class="btn-action">
+                <ion-icon name="heart-outline"></ion-icon>
+              </button>
+
+              <button class="btn-action">
+                <ion-icon name="eye-outline"></ion-icon>
+              </button>
+
+              <button class="btn-action">
+                <ion-icon name="repeat-outline"></ion-icon>
+              </button>
+
+              <button class="btn-action">
+                <ion-icon name="bag-add-outline"></ion-icon>
+              </button>
+
+            </div>
+
+          </div>
+
+          <div class="showcase-content">
+
+            <a href="#" class="showcase-category">{{p.title}}</a>
+
+            <a href="#">
+              <h3 class="showcase-title">Mens Winter Leathers Jackets</h3>
+            </a>
+
+            <div class="showcase-rating">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+            </div>
+
+            <div class="price-box">
+              <p class="price">{{p.price}}</p>
+              <del>{{p.old_price}}</del>
+            </div>
+
+          </div>
+
+        </div>
+      {% endfor %}
+  </div>
+  {% endblock content %}

@@ -1,0 +1,38 @@
+{% extends 'partials/base.html' %}
+{%load static%}
+{% block content %}
+<div class="blog">
+
+    <div class="container">
+        <h2 class="title">CATEGORIES:{{categories.count}}
+        </h2>
+      <div class="blog-container has-scrollbar">
+        {% for c in categories %}
+        <div class="blog-card">
+
+          <a href="{% url 'apps:category-product-list' c.cid %}">
+            <img src="{{c.image.url}}" alt="Clothes Retail KPIs 2021 Guide for Clothes Executives" width="300" class="blog-banner">
+          </a>
+
+          <div class="blog-content">
+
+
+            <a href="#">
+              <h3 class="blog-title">{{c.title}}</h3>
+            </a>
+
+            <p class="blog-meta">
+             <cite>{{c.category.count}}</cite>Product{{c.category.count|pluralize}}
+            </p>
+
+          </div>
+
+        </div>
+        {% endfor %}
+      </div>
+
+    </div>
+
+  </div>
+
+{% endblock content %}
