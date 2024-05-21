@@ -81,3 +81,12 @@ def tag_list(request, tag_slug=None):
     }
 
     return render(request, "apps/tag.html", context)
+def search_view(request):
+    query = request.GET.get("q")
+    products = Product.objects.filter(title_icontains=query, description__icontains=query).order_by("-date")
+
+    context = {
+        "product":products,
+        "query": query,
+    }
+    return render(request, "apps/search.html" , context)
