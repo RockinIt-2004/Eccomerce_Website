@@ -107,10 +107,10 @@
 
       <div class="container">
 
-        <a href="#" class="header-logo">
+        <a href="{% url 'apps:index' %}" class="header-logo">
           <img src="{% static './assets/images/logo/logo.svg' %}" alt="Anon's logo" width="120" height="36">
         </a>
-
+      <form action="{% url 'apps:search' %}" method="GET">
         <div class="header-search-container">
 
           <input type="search" name="q" class="search-field" placeholder="Enter your product name...">
@@ -120,7 +120,7 @@
           </button>
 
         </div>
-
+      </form>
         <div class="header-user-actions">
 
           <div class="dropdown">
@@ -145,7 +145,7 @@
 
           <button class="action-btn">
             <ion-icon name="bag-handle-outline"></ion-icon>
-            <span class="count">0</span>
+            <span class="count cart-items-count">{{ request.session.cart_data_obj | length }}</span>
           </button>
 
         </div>
@@ -161,136 +161,27 @@
         <ul class="desktop-menu-category-list">
 
           <li class="menu-category">
-            <a href="#" class="menu-title">Home</a>
+            <a href="{% url 'apps:index' %}" class="menu-title">Home</a>
           </li>
 
           <li class="menu-category">
-            <a href="#" class="menu-title">Categories</a>
+            <a href="{% url 'apps:category-list' %}" class="menu-title">Categories</a>
 
             <div class="dropdown-panel">
-
+            {% for c in categories %}
               <ul class="dropdown-panel-list">
                 <li class="menu-title">
-                  <a href="#">Hardware</a>
+                  <a href="{% url 'apps:category-product-list' c.cid %}">{{c.title}}</a>
                 </li>
-                
-                {% for p in products%}
-
                 <li class="panel-list-item">
-                  <a href="#">{{p.title}}</a>
-                </li>
-                {% endfor %}
-                <li class="panel-list-item">
-                  <a href="#">
-                    <img src="{% static './assets/images/electronics-banner-1.jpg' %}" alt="headphone collection" width="250"
+                  <a href="{% url 'apps:category-product-list' c.cid %}">
+                    <img src="{{c.image.url}}" alt="headphone collection" width="250"
                       height="119">
                   </a>
                 </li>
 
               </ul>
-
-              <ul class="dropdown-panel-list">
-
-                <li class="menu-title">
-                  <a href="#">Men's</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Formal</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Casual</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Sports</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Jacket</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Sunglasses</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">
-                    <img src="{% static './assets/images/mens-banner.jpg' %}" alt="men's fashion" width="250" height="119">
-                  </a>
-                </li>
-
-              </ul>
-
-              <ul class="dropdown-panel-list">
-
-                <li class="menu-title">
-                  <a href="#">Women's</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Formal</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Casual</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Perfume</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Cosmetics</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Bags</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">
-                    <img src="{% static './assets/images/womens-banner.jpg' %}" alt="women's fashion" width="250" height="119">
-                  </a>
-                </li>
-
-              </ul>
-
-              <ul class="dropdown-panel-list">
-
-                <li class="menu-title">
-                  <a href="#">Electronics</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Smart Watch</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Smart TV</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Keyboard</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Mouse</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Microphone</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">
-                    <img src="{% static './assets/images/electronics-banner-2.jpg' %}" alt="mouse collection" width="250" height="119">
-                  </a>
-                </li>
-
-              </ul>
-
+            {% endfor %}
             </div>
           </li>
 
@@ -678,12 +569,9 @@
     </nav>
 
   </header>
-
 {% block content %}
 
-
 {% endblock content %}
-
   <!--
     - FOOTER
   -->
@@ -988,6 +876,8 @@
   <!--
     - ionicon link
   -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src='https://kit.fontawesome.com/c8e4d183c2.js'></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

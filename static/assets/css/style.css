@@ -1,4 +1,3 @@
-
 /*-----------------------------------*\
   #style.css
 \*-----------------------------------*/
@@ -700,7 +699,7 @@ body::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 70%); }
 }
 
 .banner-title {
-  color: var(--white);
+  color: var(--eerie-black);
   font-size: var(--fs-1);
   text-transform: uppercase;
   line-height: 1;

@@ -9,13 +9,13 @@
 
         <div class="slider-item">
 
-          <img src="{{category.image.url}}" alt="women's latest fashion sale" class="banner-img">
+          <img src="{% static './assets/images/search-banner.jpg' %}" alt="women's latest fashion sale" class="banner-img">
 
           <div class="banner-content">
 
-            <p class="banner-subtitle">Category name</p>
+            <p class="banner-subtitle">Searched content</p>
 
-            <h2 class="banner-title">{{category.title}}</h2>
+            <h2 class="banner-title">{{query}}</h2>
 
             <p class="banner-text">
                 <b>{{products.count}}</b> item{{products.count|pluralize}} for you
@@ -71,7 +71,7 @@
 
           <div class="showcase-content">
 
-            <a href="{% url 'apps:product-detail' p.pid %}" class="showcase-category">{{p.title}}</a>
+            <a href="#" class="showcase-category">{{p.title}}</a>
 
             <a href="#">
               <h3 class="showcase-title">Mens Winter Leathers Jackets</h3>
