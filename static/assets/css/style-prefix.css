@@ -1129,7 +1129,9 @@ body::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 70%); }
 
 .sidebar-submenu-title:hover { color: var(--eerie-black); }
 
-.sidebar .product-name { text-transform: capitalize; }
+.sidebar .product-name { 
+  text-align: center;
+  text-transform: capitalize; }
 
 .sidebar-accordion-menu.active .add-icon,
 .sidebar-accordion-menu .remove-icon { display: none; }
@@ -3363,7 +3365,6 @@ a{
           border-radius: var(--border-radius-md);
 }
 input,
-button,
 .basket,
 .basket-module,
 .basket-labels,
@@ -3392,10 +3393,13 @@ button,
 main {
   clear: both;
   font-size: 0.75rem;
-  margin: 0 auto;
+  margin: 70px auto;
   overflow: hidden;
   padding: 1rem 0;
   width: 960px;
+  background-color: #d9b7b7;
+  -webkit-border-radius: var(--border-radius-md);
+          border-radius: var(--border-radius-md);
 }
 
 .basket,
@@ -3704,4 +3708,40 @@ body {
 
 .main-content {
   flex: 1;
+}
+
+
+
+/* dropdown*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
 }

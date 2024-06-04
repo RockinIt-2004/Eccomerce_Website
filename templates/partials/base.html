@@ -143,10 +143,10 @@
             <span class="count">0</span>
           </button>
 
-          <button class="action-btn">
+          <a href="{% url 'apps:cart' %}" class="action-btn">
             <ion-icon name="bag-handle-outline"></ion-icon>
             <span class="count cart-items-count">{{ request.session.cart_data_obj | length }}</span>
-          </button>
+          </a>
 
         </div>
 
@@ -186,109 +186,39 @@
           </li>
 
           <li class="menu-category">
-            <a href="#" class="menu-title">Men's</a>
+            <a href="#" class="menu-title">Vendors</a>
 
             <ul class="dropdown-list">
-
+            
               <li class="dropdown-item">
-                <a href="#">Shirt</a>
+                <a href="http://127.0.0.1:8000/vendor/vende5aadbhe4">Logitech</a>
               </li>
-
               <li class="dropdown-item">
-                <a href="#">Shorts & Jeans</a>
+                <a href="http://127.0.0.1:8000/vendor/venb5ae5eb1bh">Dell</a>
               </li>
-
               <li class="dropdown-item">
-                <a href="#">Safety Shoes</a>
+                <a href="http://127.0.0.1:8000/vendor/ven3ad41143g3">Asus</a>
               </li>
-
-              <li class="dropdown-item">
-                <a href="#">Wallet</a>
-              </li>
-
+            
             </ul>
           </li>
 
           <li class="menu-category">
-            <a href="#" class="menu-title">Women's</a>
-
-            <ul class="dropdown-list">
-
-              <li class="dropdown-item">
-                <a href="#">Dress & Frock</a>
-              </li>
-
-              <li class="dropdown-item">
-                <a href="#">Earrings</a>
-              </li>
-
-              <li class="dropdown-item">
-                <a href="#">Necklace</a>
-              </li>
-
-              <li class="dropdown-item">
-                <a href="#">Makeup Kit</a>
-              </li>
-
-            </ul>
+            <a href="http://127.0.0.1:8000/products/tag/gaming/" class="menu-title">Gaming</a>
           </li>
 
           <li class="menu-category">
-            <a href="#" class="menu-title">Jewelry</a>
-
-            <ul class="dropdown-list">
-
-              <li class="dropdown-item">
-                <a href="#">Earrings</a>
-              </li>
-
-              <li class="dropdown-item">
-                <a href="#">Couple Rings</a>
-              </li>
-
-              <li class="dropdown-item">
-                <a href="#">Necklace</a>
-              </li>
-
-              <li class="dropdown-item">
-                <a href="#">Bracelets</a>
-              </li>
-
-            </ul>
+            <a href="http://127.0.0.1:8000/products/tag/hardware/" class="menu-title">Hardware</a>
           </li>
 
+          
           <li class="menu-category">
-            <a href="#" class="menu-title">Perfume</a>
-
-            <ul class="dropdown-list">
-
-              <li class="dropdown-item">
-                <a href="#">Clothes Perfume</a>
-              </li>
-
-              <li class="dropdown-item">
-                <a href="#">Deodorant</a>
-              </li>
-
-              <li class="dropdown-item">
-                <a href="#">Flower Fragrance</a>
-              </li>
-
-              <li class="dropdown-item">
-                <a href="#">Air Freshener</a>
-              </li>
-
-            </ul>
+            <a href="#offer-content" class="menu-title">Hot Offers</a>
           </li>
-
+          
           <li class="menu-category">
-            <a href="#" class="menu-title">Blog</a>
+            <a href="#footer-content" class="menu-title">Contact</a>
           </li>
-
-          <li class="menu-category">
-            <a href="#" class="menu-title">Hot Offers</a>
-          </li>
-
         </ul>
 
       </div>
@@ -578,7 +508,7 @@
 
   <footer>
 
-    <div class="footer-category">
+    <div id="footer-content" class="footer-category">
 
       <div class="container">
 

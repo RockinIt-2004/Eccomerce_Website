@@ -11,6 +11,7 @@
         <li class="subtotal">Subtotal</li>
       </ul>
     </div>
+    {% if totalcartitems %}
     {% for product_id, item in cart_data.items %}
     <div class="basket-product">
       <div class="item">
@@ -18,7 +19,7 @@
           <img src="{{ item.image }}" alt="Placholder Image 2" class="product-frame" width="140" height="150">
         </div>
         <div class="product-details">
-          <span class="item-quantity">4</span> <p class="showcase-title">x {{item.title}}</p>
+          <span class="item-quantity">{{item.qty}}</span> <p class="showcase-title">x {{item.title}}</p>
           <p class="showcase-desc">Navy, Size 18</p>
           <p class="showcase-desc">Product Code - 232321939</p>
         </div>
@@ -34,6 +35,10 @@
       </div>
     </div>
     {% endfor %}
+    {% else %}
+    <h2>Your cart is empty -</h2>
+    <a href={% url 'apps:products-list' %} class="add-cart-btn"><h>See for products</h></a>
+    {% endif %}
 </div>
 <aside>
     <div class="summary">
