@@ -397,7 +397,7 @@
                   <div class="showcase-banner">
 
                     <img src="{{p.image.url}}" alt="Mens Winter Leathers Jackets" width="300" class="product-img default">
-                    <img src="{% static './assets/images/products/jacket-4.jpg' %}" alt="Mens Winter Leathers Jackets" width="300" class="product-img hover">
+                    {% comment %} <img src="{% static './assets/images/products/jacket-4.jpg' %}" alt="Mens Winter Leathers Jackets" width="300" class="product-img hover"> {% endcomment %}
 
                     <p class="showcase-badge">-{{p.get_percentage|floatformat:0}}%</p>
 
