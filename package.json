@@ -1,0 +1,14 @@
+{
+    "name": "my-django-app",
+    "version": "1.0.0",
+    "scripts": {
+      "start": "sh start.sh"
+    },
+    "engines": {
+      "node": "12.x"
+    },
+    "dependencies": {
+      "node-fetch": "^2.6.1"
+    }
+  }
+  
