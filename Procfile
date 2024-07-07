@@ -1,1 +1,0 @@
-web gunicorn eccom.wgsi:application --log-file -
