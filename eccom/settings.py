@@ -27,13 +27,14 @@ SECRET_KEY = 'django-insecure-l6p25zua5rxf448-4_%nm#d%wrz=r7#!2&8!o=#w)csiaui8#c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', 'your-project-name.vercel.app']
+ALLOWED_HOSTS = []
 
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'paypal.standard.ipn'
     'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -140,3 +141,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'userauths.User'
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+
+PAYPAL_RECIEVER_EMAIL = ''
+PAYPAL_TEST = True

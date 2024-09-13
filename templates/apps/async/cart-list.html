@@ -31,7 +31,7 @@
       <div class="subtotal">${% widthratio item.price 1 item.qty %}</div>
       <div class="cart-remove">
         <button class="delete-product" data-product="{{ product_id }}">Remove</button>
-        <button>Refresh</button>
+        <button class="update-product" data-product="{{ product_id }}">Update</button>
       </div>
     </div>
     {% endfor %}
@@ -66,7 +66,7 @@
       </div>
       <div class="summary-checkout">
         {% if totalcartitems %}
-        <button class="checkout-cta">Go to Secure Checkout</button>
+        <a href={% url 'apps:checkout' %} class="checkout-cta">Go to Secure Checkout</a>
         {% endif %}
       </div>
     </div>

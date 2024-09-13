@@ -1,5 +1,8 @@
 {% extends 'partials/base.html' %}
 {% load static %}
+{% block custom_css %}
+<link rel="stylesheet" href="{% static './assets/css/cart.css' %}">
+{% endblock %}
 {% block content %}
 <main class="main" id="cart-list">
 <div class="container">
@@ -30,12 +33,12 @@
       </div>
       <div class="cart-price">{{item.price|floatformat:2}}</div>
       <div class="quantity">
-        <input type="number" Placholder="Qty" value="{{item.qty}}" class="w-25">
+        <input type="number" Placholder="Qty" value="{{item.qty}}" class="w-25 product-qty-{{ product_id }}">
       </div>
       <div class="subtotal">${% widthratio item.price 1 item.qty %}</div>
       <div class="cart-remove">
         <button class="delete-product" data-product="{{ product_id }}">Remove</button>
-        <button>Refresh</button>
+        <button class="update-product" data-product="{{ product_id }}">Update</button>
       </div>
     </div>
     {% endfor %}
@@ -72,7 +75,7 @@
       </div>
       <div class="summary-checkout">
         {% if totalcartitems %}
-        <button class="checkout-cta">Go to Secure Checkout</button>
+        <a href={% url 'apps:checkout' %} class="checkout-cta">Go to Secure Checkout</a>
         {% endif %}
       </div>
     </div>

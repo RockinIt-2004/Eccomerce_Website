@@ -1,5 +1,5 @@
-from django.urls import path
-from apps.views import add_to_cart, cart_view, delete_item_from_cart, index,product_list_view,category_list_view,category_product_list_view, vendor_list_view,vendor_detail_view,product_detail_view,tag_list,search_view
+from django.urls import path,include
+from apps.views import add_to_cart, cart_view, delete_item_from_cart, index,product_list_view,category_list_view,category_product_list_view, vendor_list_view,vendor_detail_view,product_detail_view,tag_list,search_view,checkout_view,update_cart
 app_name="apps"
 urlpatterns = [
     #Homepage
@@ -29,7 +29,14 @@ urlpatterns = [
     path("cart/",cart_view, name="cart"),
 
     # delete item from cart page url
-    path("delete-from-cart/", delete_item_from_cart, name="delete-from-cart")
+    path("delete-from-cart/", delete_item_from_cart, name="delete-from-cart"),
 
+    # Update item from cart page url
+    path("update-cart/", update_cart, name="update-cart"),
+
+    # checkout
+    path("checkout/", checkout_view, name="checkout"),
+    # paypal 
+    path("paypal/",include('paypal.standard.ipm.urls')),
 
 ]
